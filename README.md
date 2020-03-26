@@ -25,7 +25,7 @@
 > 译者：裘宗燕<br/>
 > 版次：2004年2月<br/>
 
-电子书的百度网盘地址：链接: https://pan.baidu.com/s/1T5xmNyQ5i4UlDFqWSXmeOw 提取码: n5sw 
+相关资料（包括电子书和视频）的百度网盘地址：链接: https://pan.baidu.com/s/1T5xmNyQ5i4UlDFqWSXmeOw 提取码: n5sw 
 
 ## 主要贡献者（按首字母排名）
 [@胡锐锋-天国之影-Relph](https://github.com/Relph1119)
