@@ -155,5 +155,31 @@ print(apply('mul', Rational(1, 2), ComplexMA(10, 1)))
 
 
 def rational_to_complex(x):
+    """强制转换"""
     return ComplexRI(x.numer / x.denom, 0)
 
+
+coercions = {('rat', 'com'): rational_to_complex}
+
+
+def coerce_apply(operator_name, x, y):
+    tx, ty = type_tag(x), type_tag(y)
+    if tx != ty:
+        if (tx, ty) in coercions:
+            tx, x = ty, coercions[(tx, ty)](x)
+        elif (ty, tx) in coercions:
+            ty, y = tx, coercions[(ty, tx)](y)
+        else:
+            return 'No coercion possible.'
+    key = (operator_name, tx)
+    return coerce_apply.implementations[key](x, y)
+
+
+coerce_apply.implementations = {
+    ('mul', 'com'): mul_complex,
+    ('mul', 'rat'): mul_rational,
+    ('add', 'com'): add_complex,
+    ('add', 'rat'): add_rational}
+
+print(coerce_apply('add', ComplexRI(1.5, 0), Rational(3, 2)))
+print(coerce_apply('mul', Rational(1, 2), ComplexMA(10, 1)))
