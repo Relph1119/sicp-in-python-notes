@@ -14,14 +14,14 @@ class Exp(object):
     """
     A call expression in Calculator.
     usage:
-        >>> Exp('add', [1, 2])
         Exp('add', [1, 2])
-        >>> str(Exp('add', [1, 2]))
-        add(1, 2)
-        >>> Exp('add', [1, Exp('mul', [2, 3, 4])])
+        Exp('add', [1, 2])
+        str(Exp('add', [1, 2]))
+        'add(1, 2)'
         Exp('add', [1, Exp('mul', [2, 3, 4])])
-        >>> str(Exp('add', [1, Exp('mul', [2, 3, 4])]))
-        add(1, mul(2, 3, 4))
+        Exp('add', [1, Exp('mul', [2, 3, 4])])
+        str(Exp('add', [1, Exp('mul', [2, 3, 4])]))
+        'add(1, mul(2, 3, 4))'
     """
 
     def __init__(self, operator, operands):
@@ -40,13 +40,13 @@ def calc_apply(operator, args):
     """
     Apply the named operator to a list of args.
     usage:
-        >>> calc_apply('+', [1, 2, 3])
+        calc_apply('+', [1, 2, 3])
         6
-        >>> calc_apply('-', [10, 1, 2, 3])
+        calc_apply('-', [10, 1, 2, 3])
         4
-        >>> calc_apply('*', [])
+        calc_apply('*', [])
         1
-        >>> calc_apply('/', [40, 5])
+        calc_apply('/', [40, 5])
         8.0
     """
     if operator in ('add', '+'):
@@ -70,9 +70,10 @@ def calc_eval(exp):
     """
     Evaluate a Calculator expression.
     usage:
-        >>> e = Exp('add', [2, Exp('mul', [4, 6])])
+        e = Exp('add', [2, Exp('mul', [4, 6])])
+        e
         Exp('add', [2, Exp('mul', [4, 6])])
-        >>> calc_eval(e)
+        calc_eval(e)
         26
     """
     if type(exp) in (int, float):
@@ -86,7 +87,7 @@ def tokenize(line):
     """
     Convert a string into a list of tokens.
     usage:
-        >>> tokenize('add(2, mul(4, 6))')
+        tokenize('add(2, mul(4, 6))')
         ['add', '(', '2', ',', 'mul', '(', '4', ',', '6', ')', ')']
     """
 
@@ -131,11 +132,9 @@ def analyze(tokens):
     """
     Create a tree of nested lists from a sequence of tokens.
     usage:
-        >>> expression = 'add(2, mul(4, 6))'
-        >>> analyze(tokenize(expression))
-        Exp('add', [2, Exp('mul', [4, 6])])
-        >>> str(analyze(tokenize(expression)))
-        add(2, mul(4, 6))
+        expression = 'add(2, mul(4, 6))'
+        analyze(tokenize(expression))
+        str(analyze(tokenize(expression)))
     """
     assert_non_empty(tokens)
     token = analyze_token(tokens.pop(0))
