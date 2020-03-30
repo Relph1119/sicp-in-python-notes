@@ -30,6 +30,13 @@
 ## 主要贡献者（按首字母排名）
 [@胡锐锋-天国之影-Relph](https://github.com/Relph1119)
 
+## 未来计划
+1. 刷完CS61A的课程、练习题和项目
+2. 刷完SICP上面的练习题，并采用python编写
+
+## 相关资料
+1. [CS61A Spring 2012](https://inst.eecs.berkeley.edu/~cs61a/sp12/)
+2. [SICP-PY中文版书籍地址](https://github.com/wizardforcel/sicp-py-zh)
 
 ## LICENSE
 [GNU General Public License v3.0](https://github.com/relph1119/sicp-in-python-notes/blob/master/LICENSE)
